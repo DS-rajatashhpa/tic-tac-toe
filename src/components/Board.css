@@ -1,0 +1,28 @@
+.square {
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    /* margin: 5px; */
+    padding: 10px;
+    text-align: center;
+    /* background-color: blue; */
+    /* border: 1px solid #999; */
+    cursor: pointer;
+    border: 1px solid black;
+  }
+  .square.filled {
+    background-color: green;
+  }
+  
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  .board-row {
+    /* margin-bottom: 10px; */
+  }
+  .board {
+    width: 200px;
+    margin: auto;
+  }
