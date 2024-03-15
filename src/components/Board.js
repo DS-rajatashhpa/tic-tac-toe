@@ -12,7 +12,7 @@ const Board = () => {
   useEffect(() => {
     // Unique game ID and player ID should be determined or generated
     const gameId = "unique-game-id"; // This should be dynamically determined or generated
-    const newWs = new WebSocket(`ws://127.0.0.1:8000/ws/${gameId}`);
+    const newWs = new WebSocket(`wss://shrouded-crag-98587-07c0f59995f3.herokuapp.com//${gameId}`);
     newWs.onmessage = (event) => {
       const message = JSON.parse(event.data);
       console.log(message.status)
