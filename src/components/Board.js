@@ -75,16 +75,26 @@ const Board = () => {
   };  
 
   const renderSquare = (i, j) => {
-  return (
-    <button className="square filled" onClick={() => handleClick(i, j)}> {/* Added `filled` class */}
-      {board[i][j]}
-    </button>
-  );
-};
+    let emoji = "";
+    if (board[i][j] === "X") {
+      emoji = "👨"; // Man emoji for X
+    } else if (board[i][j] === "O") {
+      emoji = "👧"; // Girl emoji for O
+    }
+  
+    return (
+      <button className={`square ${board[i][j] ? "filled" : ""}`} onClick={() => handleClick(i, j)}>
+        {emoji}
+      </button>
+    );
+  };
 
 
   return (
     <div>
+      <div className="player-symbol">
+        Your Symbol: {mySymbol === "X" ? "👨" : mySymbol === "O" ? "👧" : ""}
+      </div>
       <div className="status">
         {gameStatus === "waiting" && "Waiting for another player..."}
         {gameStatus === "started" && `Player ${currentTurn}'s turn`}

@@ -1,28 +1,57 @@
 .square {
-    font-size: 20px;
-    width: 60px;
-    height: 60px;
-    /* margin: 5px; */
-    padding: 10px;
-    text-align: center;
-    /* background-color: blue; */
-    /* border: 1px solid #999; */
-    cursor: pointer;
-    border: 1px solid black;
+  font-size: 36px; /* Increase font size for larger squares */
+  width: 100px; /* Adjust width for larger squares */
+  height: 100px; /* Adjust height for larger squares */
+  margin: 3px; /* Add some margin between squares */
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Adding a smooth transition effect */
+}
+
+.square.filled {
+  background-color: lightseagreen;
+}
+
+/* Adding hover effect */
+.square:hover {
+  background-color: black;
+  transform: scale(1.1); /* Scale up slightly on hover */
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.board-row {
+  display: flex;
+}
+
+.board {
+  width: 400px; /* Increase the width to accommodate center of the page */
+  height: 400px; /* Set a fixed height for consistency */
+  margin: auto; /* Center the board horizontally */
+  margin-top: 50px; /* Add some top margin for spacing */
+  border: 2px solid #333; /* Add a border for better visibility */
+  display: flex; /* Use flexbox for centering squares */
+  flex-direction: column; /* Align squares in columns */
+  justify-content: center; /* Center squares vertically */
+  align-items: center; /* Center squares horizontally */
+}
+
+/* Adding a rotation animation */
+@keyframes rotateSquare {
+  0% {
+    transform: rotateY(0deg);
   }
-  .square.filled {
-    background-color: green;
+  100% {
+    transform: rotateY(360deg);
   }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  .board-row {
-    /* margin-bottom: 10px; */
-  }
-  .board {
-    width: 200px;
-    margin: auto;
-  }
+}
+
+/* Apply rotation animation to squares */
+.square.rotate {
+  animation: rotateSquare 2s infinite linear;
+}
